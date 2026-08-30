@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RetroDrive サポート</title>
+  <style>
+    :root { color-scheme: dark; --bg: #120b0b; --panel: #211313; --accent: #ffb800; --text: #f7eee5; --muted: #c7b7aa; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: linear-gradient(145deg, #270d0d, var(--bg)); color: var(--text); font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; }
+    main { max-width: 720px; margin: 0 auto; padding: 48px 22px 64px; }
+    .card { background: color-mix(in srgb, var(--panel) 92%, transparent); border: 1px solid #54302a; border-radius: 18px; padding: 28px; box-shadow: 0 18px 50px #0008; }
+    h1 { margin: 0 0 8px; color: var(--accent); font-size: clamp(30px, 8vw, 48px); letter-spacing: .04em; }
+    h2 { margin: 30px 0 8px; color: var(--accent); font-size: 21px; }
+    p { margin: 8px 0; }
+    .muted { color: var(--muted); }
+    a { color: #ffd45c; }
+    ul { padding-left: 1.4em; }
+    footer { margin-top: 24px; color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1>RetroDrive</h1>
+      <p class="muted">レトロなドライビング筐体で遊ぶタイムトライアルゲーム</p>
+
+      <h2>お問い合わせ</h2>
+      <p>不具合やご意見は、公開元リポジトリのIssuesからお知らせください。</p>
+      <p><a id="issues" href="#">Issuesを開く</a></p>
+
+      <h2>お問い合わせ時にお知らせいただきたい情報</h2>
+      <ul>
+        <li>端末モデルとiOSのバージョン</li>
+        <li>アプリのバージョン</li>
+        <li>発生した手順と、表示された内容</li>
+      </ul>
+      <p class="muted">パスワード、決済情報、個人を特定できる情報は送信しないでください。</p>
+
+      <h2>Languages</h2>
+      <p class="muted">For support, please open an issue in the public repository. Include your device model, iOS version, app version, and steps to reproduce the issue. Do not include passwords, payment details, or personally identifying information.</p>
+    </section>
+    <footer>RetroDrive Support</footer>
+  </main>
+  <script>
+    const parts = location.pathname.split('/').filter(Boolean);
+    const owner = location.hostname.endsWith('.github.io') ? location.hostname.split('.')[0] : '';
+    const repo = parts[0] || '';
+    const link = document.getElementById('issues');
+    if (owner && repo) {
+      link.href = `https://github.com/${owner}/${repo}/issues`;
+    } else {
+      link.textContent = '公開元リポジトリを確認してください';
+      link.removeAttribute('href');
+    }
+  </script>
+</body>
+</html>
